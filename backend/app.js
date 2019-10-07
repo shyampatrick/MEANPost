@@ -2,13 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
-const postRoutes = require('./routes/posts');
 
+const postRoutes = require('./routes/posts');
+const authRoutes = require('./routes/auth');
 const app = express();
 
 mongoose
   .connect(
-    'mongodb+srv://shyam:Dj7rakHfyDxPZmVX@cluster0-f08rl.mongodb.net/meanpost?retryWrites=true&w=majority',
+    'mongodb+srv://shyam:Dj7rakHfyDxPZmVX@cluster0-f08rl.mongodb.net/meanpost',
     { useNewUrlParser: true }
   )
   .then(() => {
@@ -26,7 +27,7 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
     'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept'
+    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
   );
   res.setHeader(
     'Access-Control-Allow-Methods',
@@ -36,5 +37,6 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/posts/', postRoutes);
+app.use('/api/auth/', authRoutes);
 
 module.exports = app;
