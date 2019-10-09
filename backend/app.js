@@ -9,7 +9,9 @@ const app = express();
 
 mongoose
   .connect(
-    'mongodb+srv://shyam:Dj7rakHfyDxPZmVX@cluster0-f08rl.mongodb.net/meanpost',
+    'mongodb+srv://shyam:' +
+      process.env.MONGO_ATLAS_PW +
+      '@cluster0-f08rl.mongodb.net/meanpost',
     { useNewUrlParser: true }
   )
   .then(() => {
