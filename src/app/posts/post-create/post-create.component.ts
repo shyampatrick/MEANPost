@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 @Component({
   selector: 'app-post-create',
   templateUrl: './post-create.component.html',
-  styleUrls: ['/post-create.component.css']
+  styleUrls: ['./post-create.component.css']
 })
 export class PostCreateComponent implements OnInit, OnDestroy {
   private mode = 'create';
