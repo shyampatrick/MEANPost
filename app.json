@@ -1,0 +1,19 @@
+{
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "description": "Post App using MEAN Stack",
+  "env": {
+  },
+  "formation": {
+  },
+  "name": "MEANPost",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
