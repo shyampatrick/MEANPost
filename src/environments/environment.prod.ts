@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://0.0.0.0:3000/api'
+  apiUrl: 'https://meanpost-osk.herokuapp.com:3000/api'
 };
