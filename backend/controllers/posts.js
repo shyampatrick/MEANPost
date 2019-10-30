@@ -5,7 +5,7 @@ exports.createPost = (req, res, next) => {
   const post = new Post({
     title: req.body.title,
     content: req.body.content,
-    imagePath: url + '/images/' + req.file.filename,
+    imagePath: './images/' + req.file.filename,
     creator: req.userData.userId
   });
   post
