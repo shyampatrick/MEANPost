@@ -1,6 +1,6 @@
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const User = require('../models/user');
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const User = require("../models/user");
 
 exports.createUser = (req, res, next) => {
   bcrypt
@@ -15,19 +15,19 @@ exports.createUser = (req, res, next) => {
         .then(result => {
           console.log(result);
           res.status(201).json({
-            message: 'User Created',
+            message: "User Created",
             result: result
           });
         })
         .catch(err => {
           res.status(500).json({
-            message: 'User Exists'
+            message: "User Exists"
           });
         });
     })
     .catch(err => {
       res.status(500).json({
-        message: 'Internal Application Failure'
+        message: "Internal Application Failure"
       });
     });
 };
@@ -41,7 +41,7 @@ exports.userLogin = (req, res, next) => {
       if (!user) {
         //user not found
         return res.status(401).json({
-          message: 'Auth Failed: No Such User'
+          message: "Auth Failed: No Such User"
         });
       }
       fetchedUser = user;
@@ -51,14 +51,14 @@ exports.userLogin = (req, res, next) => {
       if (!result) {
         //password not matched
         return res.status(401).json({
-          message: 'Auth Failed: Password Invalid'
+          message: "Auth Failed: Password Invalid"
         });
       }
 
       const token = jwt.sign(
         { email: fetchedUser.email, userId: fetchedUser._id },
-        process.env.JWT_KEY,
-        { expiresIn: '1h' }
+        secret - TODO - gen,
+        { expiresIn: "1h" }
       );
 
       res.status(200).json({
@@ -69,7 +69,7 @@ exports.userLogin = (req, res, next) => {
     })
     .catch(err => {
       return res.status(500).json({
-        message: 'Internal Application Failure'
+        message: "Internal Application Failure"
       });
     });
 };
