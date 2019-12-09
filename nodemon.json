@@ -1,6 +1,0 @@
-{
-  "env": {
-    "MONGO_ATLAS_PW": "Dj7rakHfyDxPZmVX",
-    "JWT_KEY": "secret-TODO-gen"
-  }
-}
